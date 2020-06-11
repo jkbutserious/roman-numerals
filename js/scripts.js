@@ -16,6 +16,7 @@ function arabicToRoman (number) {
   const romanTens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
   const romanHundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
   const romanThousands = ["", "M", "MM", "MMM"];
+
   if (arabicDigits.length === 1) {
     return romanNumber + 
     romanOnes[parseInt(arabicDigits[arabicDigits.length] - 1)];
@@ -32,7 +33,6 @@ function arabicToRoman (number) {
     romanOnes[parseInt(arabicDigits[2])];
 
   }
-  // else if (arabicDigits.length === 4) {
     else {
     return romanNumber + 
     romanThousands[parseInt(arabicDigits[0])] +
@@ -47,8 +47,10 @@ function arabicToRoman (number) {
 
 
 
-// Refactoring
-    // // return "I";
-    // for (i = 1; i <= number; i++) {
-    //   let romanNumber = 0;
-    // }
+// Refactoring Project
+// const romanDigits = [romanOnes, romanTens, romanHundreds, romanThousands];
+
+  // for (i = arabicDigits.length - 1; i > 0; i--) {
+  //   romanNumber = romanNumber + romanDigits[i][parseInt(arabicDigits[i])];
+  //   }
+  // return romanNumber;
