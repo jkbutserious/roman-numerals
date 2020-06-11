@@ -10,8 +10,15 @@ $(document).ready(function() {
 
 // Business Logic
 function arabicToRoman (number) {
-  if (number === "1") {
-    return "I";
+  let romanNumber = "";
+  const arabicDigits = number.split("");
+  const romanOnes = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+  if (arabicDigits.length === 1) {
+    return romanNumber + romanOnes[parseInt(arabicDigits[arabicDigits.length - 1] - 1)];
+    // // return "I";
+    // for (i = 1; i <= number; i++) {
+    //   let romanNumber = 0;
+    // }
   }
   else if (number === "5") {
     return "V";
