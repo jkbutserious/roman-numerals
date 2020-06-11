@@ -17,29 +17,36 @@ function arabicToRoman (number) {
   const romanHundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
   const romanThousands = ["", "M", "MM", "MMM"];
 
-  if (arabicDigits.length === 1) {
-    return romanNumber + 
-    romanOnes[parseInt(arabicDigits[arabicDigits.length] - 1)];
-  }
-  else if (arabicDigits.length === 2) {
-    return romanNumber + 
-    romanTens[parseInt(arabicDigits[0])] + 
-    romanOnes[parseInt(arabicDigits[1])];
-  }
-  else if (arabicDigits.length === 3) {
-    return romanNumber + 
-    romanHundreds[parseInt(arabicDigits[0])] + 
-    romanTens[parseInt(arabicDigits[1])] + 
-    romanOnes[parseInt(arabicDigits[2])];
+  const romanDigits = [romanOnes, romanTens, romanHundreds, romanThousands];
 
-  }
-    else {
-    return romanNumber + 
-    romanThousands[parseInt(arabicDigits[0])] +
-    romanHundreds[parseInt(arabicDigits[1])] + 
-    romanTens[parseInt(arabicDigits[2])] + 
-    romanOnes[parseInt(arabicDigits[3])];
-  }
+  for (i = 0; i < arabicDigits.length; i++) {
+    romanNumber = romanDigits[i][parseInt(arabicDigits[arabicDigits.length - 1 - i])] + romanNumber;
+    }
+  return romanNumber;
+
+  // if (arabicDigits.length === 1) {
+  //   return romanNumber + 
+  //   romanOnes[parseInt(arabicDigits[arabicDigits.length] - 1)];
+  // }
+  // else if (arabicDigits.length === 2) {
+  //   return romanNumber + 
+  //   romanTens[parseInt(arabicDigits[0])] + 
+  //   romanOnes[parseInt(arabicDigits[1])];
+  // }
+  // else if (arabicDigits.length === 3) {
+  //   return romanNumber + 
+  //   romanHundreds[parseInt(arabicDigits[0])] + 
+  //   romanTens[parseInt(arabicDigits[1])] + 
+  //   romanOnes[parseInt(arabicDigits[2])];
+
+  // }
+  //   else {
+  //   return romanNumber + 
+  //   romanThousands[parseInt(arabicDigits[0])] +
+  //   romanHundreds[parseInt(arabicDigits[1])] + 
+  //   romanTens[parseInt(arabicDigits[2])] + 
+  //   romanOnes[parseInt(arabicDigits[3])];
+  // }
 }
 
 
