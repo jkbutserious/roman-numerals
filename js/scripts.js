@@ -12,30 +12,43 @@ $(document).ready(function() {
 function arabicToRoman (number) {
   let romanNumber = "";
   const arabicDigits = number.split("");
-  const romanOnes = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+  const romanOnes = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+  const romanTens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
+  const romanHundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
+  const romanThousands = ["", "M", "MM", "MMM"];
   if (arabicDigits.length === 1) {
-    return romanNumber + romanOnes[parseInt(arabicDigits[arabicDigits.length - 1] - 1)];
+    return romanNumber + 
+    romanOnes[parseInt(arabicDigits[arabicDigits.length] - 1)];
+  }
+  else if (arabicDigits.length === 2) {
+    return romanNumber + 
+    romanTens[parseInt(arabicDigits[0])] + 
+    romanOnes[parseInt(arabicDigits[1])];
+  }
+  else if (arabicDigits.length === 3) {
+    return romanNumber + 
+    romanHundreds[parseInt(arabicDigits[0])] + 
+    romanTens[parseInt(arabicDigits[1])] + 
+    romanOnes[parseInt(arabicDigits[2])];
+
+  }
+  // else if (arabicDigits.length === 4) {
+    else {
+    return romanNumber + 
+    romanThousands[parseInt(arabicDigits[0])] +
+    romanHundreds[parseInt(arabicDigits[1])] + 
+    romanTens[parseInt(arabicDigits[2])] + 
+    romanOnes[parseInt(arabicDigits[3])];
+  }
+}
+
+
+
+
+
+
+// Refactoring
     // // return "I";
     // for (i = 1; i <= number; i++) {
     //   let romanNumber = 0;
     // }
-  }
-  else if (number === "5") {
-    return "V";
-  }
-  else if (number === "10") {
-    return "X";
-  }
-  else if (number === "50") {
-    return "L";
-  }
-  else if (number === "100") {
-    return "C";
-  }
-  else if (number === "500") {
-    return "D";
-  }
-  else if (number === "1000") {
-    return "M";
-  }
-}
