@@ -23,3 +23,4 @@ function arabicToRoman (number) {
     romanNumber = romanDigits[i][parseInt(arabicDigits[arabicDigits.length - 1 - i])] + romanNumber;
     }
   return romanNumber;
+};
